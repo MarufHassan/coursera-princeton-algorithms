@@ -19,6 +19,7 @@ Week 5 | [Kd-Trees][w5] | 100/100
 
 Assignment | Name | Score
 :--- | :--- | ---
+Week 1 | [WordNet][w7] | 94/100
 
 
 [courselink1]: https://www.coursera.org/learn/algorithms-part1
@@ -29,3 +30,4 @@ Assignment | Name | Score
 [w3]: http://coursera.cs.princeton.edu/algs4/assignments/collinear.html
 [w4]: http://coursera.cs.princeton.edu/algs4/assignments/8puzzle.html
 [w5]: http://coursera.cs.princeton.edu/algs4/assignments/kdtree.html
+[w7]: http://coursera.cs.princeton.edu/algs4/assignments/wordnet.html
