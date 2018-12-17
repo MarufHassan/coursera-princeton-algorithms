@@ -20,7 +20,7 @@ Week 5 | [Kd-Trees][w5] | 100/100
 Assignment | Name | Score
 :--- | :--- | ---
 Week 1 | [WordNet][w7] | 94/100
-Week 2 | [Seam Carving][w8] | N/A
+Week 2 | [Seam Carving][w8] | 100/100
 Week 3 | [Baseball Elimination][w9] | 100/100
 
 
