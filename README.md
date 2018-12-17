@@ -20,6 +20,8 @@ Week 5 | [Kd-Trees][w5] | 100/100
 Assignment | Name | Score
 :--- | :--- | ---
 Week 1 | [WordNet][w7] | 94/100
+Week 2 | [Seam Carving][w8] | N/A
+Week 3 | [Baseball Elimination][w9] | 100/100
 
 
 [courselink1]: https://www.coursera.org/learn/algorithms-part1
@@ -31,3 +33,5 @@ Week 1 | [WordNet][w7] | 94/100
 [w4]: http://coursera.cs.princeton.edu/algs4/assignments/8puzzle.html
 [w5]: http://coursera.cs.princeton.edu/algs4/assignments/kdtree.html
 [w7]: http://coursera.cs.princeton.edu/algs4/assignments/wordnet.html
+[w8]: http://coursera.cs.princeton.edu/algs4/assignments/seam.html
+[w9]: http://coursera.cs.princeton.edu/algs4/assignments/baseball.html
