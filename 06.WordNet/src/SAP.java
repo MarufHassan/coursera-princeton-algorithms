@@ -7,11 +7,13 @@ import java.util.List;
 
 public class SAP {
     private final Digraph G;
+    private DeluxeBFS bfs;
 
     // constructor takes a digraph (not necessarily a DAG)
     public SAP(Digraph G) {
         validate(G);
         this.G = new Digraph(G);
+        bfs = new DeluxeBFS(this.G);
     }
 
     // length of shortest ancestral path between v and w;
@@ -21,21 +23,7 @@ public class SAP {
 
         if (v == w)
             return 0;
-
-        BreadthFirstDirectedPaths left = new BreadthFirstDirectedPaths(this.G, v);
-        BreadthFirstDirectedPaths right = new BreadthFirstDirectedPaths(this.G, w);
-
-        int minDistance = Integer.MAX_VALUE;
-        for (int i = 0; i < G.V(); i++) {
-            for (int vertex : G.adj(i)) {
-                if (left.hasPathTo(vertex) && right.hasPathTo(vertex)) {
-                    int distance = left.distTo(vertex) + right.distTo(vertex);
-                    minDistance = Math.min(distance, minDistance);
-                }
-            }
-        }
-
-        return minDistance < Integer.MAX_VALUE ? minDistance : -1;
+        return bfs.length(v, w);
     }
 
     // a common ancestor of v and w that participates in a shortest ancestral path;
@@ -46,23 +34,7 @@ public class SAP {
         if (v == w)
             return v;
 
-        BreadthFirstDirectedPaths left = new BreadthFirstDirectedPaths(this.G, v);
-        BreadthFirstDirectedPaths right = new BreadthFirstDirectedPaths(this.G, w);
-
-        int minDistance = Integer.MAX_VALUE;
-        int ancestor = -1;
-        for (int i = 0; i < G.V(); i++) {
-            for (int vertex : G.adj(i)) {
-                if (left.hasPathTo(vertex) && right.hasPathTo(vertex)) {
-                    int distance = left.distTo(vertex) + right.distTo(vertex);
-                    if (distance < minDistance) {
-                        minDistance = distance;
-                        ancestor = vertex;
-                    }
-                }
-            }
-        }
-        return ancestor;
+        return bfs.ancestor(v, w);
     }
 
     // length of shortest ancestral path between any vertex in v and any vertex in w;
@@ -71,15 +43,7 @@ public class SAP {
         validate(v);
         validate(w);
 
-        int minDistance = Integer.MAX_VALUE;
-        for (int a: v) {
-            for (int b: w) {
-                int distance = length(a, b);
-                minDistance = Math.min(distance, minDistance);
-            }
-        }
-
-        return minDistance < Integer.MAX_VALUE ? minDistance : -1;
+        return bfs.length(v, w);
     }
 
     // a common ancestor that participates in shortest ancestral path;
@@ -87,19 +51,7 @@ public class SAP {
     public int ancestor(Iterable<Integer> v, Iterable<Integer> w) {
         validate(v);
         validate(w);
-
-        int minDistance = Integer.MAX_VALUE;
-        int ancestor = -1;
-        for (int a: v) {
-            for (int b: w) {
-                int distance = length(a, b);
-                if (distance < minDistance) {
-                    minDistance = distance;
-                    ancestor = ancestor(a, b);
-                }
-            }
-        }
-        return ancestor;
+        return bfs.ancestor(v, w);
     }
 
     // private Helper method
@@ -114,7 +66,7 @@ public class SAP {
     }
 
     private void validate(int vertex) {
-        if (vertex >= G.V())
+        if (vertex >= G.V() || vertex < 0)
             throw new IllegalArgumentException();
     }
 
