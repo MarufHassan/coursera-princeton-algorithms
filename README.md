@@ -23,6 +23,7 @@ Week 1 | [WordNet][w7] | 100/100
 Week 2 | [Seam Carving][w8] | 100/100
 Week 3 | [Baseball Elimination][w9] | 100/100
 Week 4 | [Boggle][w10] | 100/100
+Week 5 | [Burrows–Wheeler Data Compression][w11] | 100/100
 
 
 [courselink1]: https://www.coursera.org/learn/algorithms-part1
@@ -37,3 +38,4 @@ Week 4 | [Boggle][w10] | 100/100
 [w8]: http://coursera.cs.princeton.edu/algs4/assignments/seam.html
 [w9]: http://coursera.cs.princeton.edu/algs4/assignments/baseball.html
 [w10]: http://coursera.cs.princeton.edu/algs4/assignments/boggle.html
+[w11]: http://coursera.cs.princeton.edu/algs4/assignments/burrows.html
